@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Strona Główna";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@section Stylesheets {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+}
+
+<div class="text-center">
+    <!-- Benefits Section -->
+    <section class="container my-5 text-center">
+        <h2 class="animate__animated animate__zoomIn">Otwórz drzwi do świata przez naukę języka!</h2>
+        <p class="lead animate__animated animate__fadeInUp">Odkrywaj, podróżuj, komunikuj się. Zacznij już teraz.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card mb-4 animate__animated animate__fadeInLeft">
+                    <img src="https://source.unsplash.com/random/200x200?language-learn" alt="Learning Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-book"></i> Nauka</h5>
+                        <p class="card-text">Z nami nauka języka staje się prosta i przyjemna.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 animate__animated animate__fadeInUp">
+                    <img src="https://source.unsplash.com/random/200x200?language-travel" alt="Travel Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-plane"></i> Podróże</h5>
+                        <p class="card-text">Nauka języków ułatwia podróżowanie i poznawanie nowych kultur.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 animate__animated animate__fadeInRight">
+                    <img src="https://source.unsplash.com/random/200x200?language-culture" alt="Culture Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-globe"></i> Kultura</h5>
+                        <p class="card-text">Odkrywaj kultury z całego świata przez język.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="animate__animated animate__zoomIn">Gotowy do rozpoczęcia nauki?</h2>
+            <p class="lead animate__animated animate__fadeInUp">Dołącz do nas i rozpocznij swoją przygodę z językami!</p>
+            <a href="/register" class="btn btn-primary animate__animated animate__bounce">Zarejestruj się teraz</a>
+        </div>
+    </section>
+</div>
