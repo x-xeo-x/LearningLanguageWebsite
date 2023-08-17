@@ -1,7 +1,4 @@
-/**
- * Submits the registration data.
- */
-function submitRegister() {
+function registerSubmit() {
     const checkboxes = document.querySelectorAll('.form-check-input');
     const selectedIds = [];
 
@@ -30,9 +27,6 @@ function submitRegister() {
         });
 }
 
-/**
- * Submits the login data.
- */
 function loginSubmit() {
     makePostRequest(loginAccountUrl, {
         email: document.getElementById('userEmail').value,
@@ -52,9 +46,6 @@ function loginSubmit() {
         });
 }
 
-/**
- * Sends a password reset request.
- */
 function resetPassword() {
     const email = document.getElementById('userEmail');
 
@@ -76,9 +67,6 @@ function resetPassword() {
     email.parentElement.classList.add('was-validated');
 }
 
-/**
- * Validates form and determines action based on the submit button's type.
- */
 (function initFormValidation() {
     showMessagesFromUrl();
 
@@ -95,7 +83,7 @@ function resetPassword() {
                         loginSubmit();
                         break;
                     case 'register':
-                        submitRegister();
+                        registerSubmit();
                         break;
                 }
             }

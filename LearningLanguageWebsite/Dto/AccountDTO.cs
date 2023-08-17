@@ -11,16 +11,14 @@ namespace LearningLanguageWebsite.Dto
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
         public bool IsAdmin { get; set; }
         public long CreationTime { get; set; }
-
-		[BsonRepresentation(BsonType.ObjectId)]
-		public List<string> LangueageId { get; set; }
-
-		[BsonRepresentation(BsonType.ObjectId)]
-		public List<string> CardsId { get; set; }
+        public long LastPasswordChange { get; set; }
+        public long LastEmailPasswordSend { get; set; }
+        public long LastEmailConfirmSend { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
-        public List<string> ArticlesId { get; set; }
+		public List<string> LangueageId { get; set; }
 	}
 }

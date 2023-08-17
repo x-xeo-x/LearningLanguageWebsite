@@ -40,8 +40,9 @@ namespace LearningLanguageWebsite
 			services.AddSingleton<IEmailProvider, EmailProviderService>();
 			services.AddSingleton<IPasswordHasher, PasswordHasher>();
 			services.AddSingleton<IUserAuthentication, UserAuthenticationService>();
+            services.AddSingleton<ILanguageRepository, LanguageRepositoryService>();
 
-			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 ContractResolver = new CamelCasePropertyNamesContractResolver()

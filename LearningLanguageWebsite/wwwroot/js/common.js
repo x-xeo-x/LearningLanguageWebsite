@@ -36,114 +36,25 @@ async function makeGetRequest(url = '') {
     return response.json();
 }
 
-function translateCode(code) {
-    switch (code) {
-        case 'account_created':
-            return 'Konto utworzone, sprawdź swój email aby potwierdzić konto!';
-        case 'account_exists':
-            return 'Konto już istnieje dla podanego adresu email lub użytkownika!';
-        case 'invalid_model_register':
-            return 'Adres email nie jest poprawny!';
-        case 'wrong_email_key':
-            return "Kod potwierdzenia nie jest poprwany!";
-        case 'email_confirmed':
-            return 'Email został potwierdzony!';
-        case 'email_sended':
-            return 'Email został wysłany ponownie!';
-        case 'invalid_credentials':
-            return 'Email lub hasło jest nieprawidłowe!';
-        case 'email_too_fast':
-            return 'Poczekaj przynajmniej 15min przed wysłaniem kolejnego emaila!';
-        case 'twitch_connect_error':
-            return 'Podczas łączenia konta z Twitch wystąpił błąd!';
-        case 'twitch_connect_success':
-            return 'Konto zostało pomyślnie połączone z Twitch';
-        case 'twitch_invalid_email':
-            return 'Twoje konto Twitch musi mieć zweryfikowany email!';
-        case 'twitch_email_exists':
-            return 'Konto na tym adresie email z Twitch już istnieje!';
-        case 'twitch_invalid_scope':
-            return 'Błąd Twitch! Brak uprawnień do adresu email!';
-        case 'password_reset_success':
-            return 'Link do resetu twojego hasła został wysłany na podany adres email!';
-        case 'password_reseted':
-            return 'Hasło zostało zresetowane, twoje tymczasowe hasło zostało wysłane na twój adres email!';
-        case 'invalid_password':
-            return 'Nieprawidłowe hasło!';
-        case 'password_changed':
-            return 'Hasło zostało zmienione!';
-        case 'username_changed':
-            return 'Nazwa użytkownika została zmieniona!'
-        case 'connection_removed':
-            return 'Połączenie zostało usunięte!';
-        case 'invalid_model':
-            return 'Nieprawidłowe dane formularza!';
-        case 'refresh_success':
-            return 'Odswieżenie powiodło się!';
-        case 'category_added':
-            return 'Kategoria została dodana!';
-        case 'record_deleted':
-            return 'Rekord został usunięty!';
-        case 'category_edited':
-            return 'Kategoria została zmieniona!';
-        case 'user_not_found':
-            return 'Nie znaleziono takiego konta!';
-        case 'game_not_found':
-            return 'Nie znaleziono takiej gry!';
-        case 'question_added':
-            return 'Pytanie zostało dodane!';
-        case 'question_edited':
-            return 'Pytanie zostało zmienione!';
-        case 'report_submitted':
-            return 'Pytanie zostało zgłoszone!';
-        case 'report_handled':
-            return 'Zgłoszenie zostało już rozpatrzone!';
-        case 'report_decline':
-            return 'Zgłoszenie zostało odrzucone!';
-        case 'report_accepted':
-            return 'Zgłoszenie zostało zaakceptowane!';
-        case 'preferences_setted':
-            return 'Preferencje zostały zmienione!';
-        case 'status_not_success':
-            return 'Zapytanie nie powiodło się!';
-        case 'image_too_large':
-            return 'Obraz który próbujesz przesłać jest zbyt duży, maksymalny rozmiar to 1MB';
-        case 'question_request_added':
-            return 'Twoje pytanie zostało dodane, zanim ukaże się społeczności zostanie sprawdzone przez moderatorów';
-        case 'user_modified':
-            return 'Pomyślnie zapisano nowe wartości dla użytkownika!';
-        case 'not_allowed':
-            return 'Nie masz uprawnień do wykonania tej czyności!';
-    }
-
-    return code;
-}
-
 function showMessagesFromUrl() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (urlParams.has('success')) {
-        toastr.success(translateCode(urlParams.get('success')));
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = urlParams.get('success');
+    const errorMessage = urlParams.get('error');
 
-    if (urlParams.has('error')) {
-        toastr.error(translateCode(urlParams.get('error')));
+    switch (true) {
+        case urlParams.has('success'):
+            toastr.success(successMessage); //TODO TRANSLATE
+            break;
+        case urlParams.has('error'):
+            toastr.error(errorMessage); //TODO TRANSLATE
+            break;
+        default:
+            break;
     }
 }
 
-function escapeValue(s) {
-    if (!s) {
-        return '';
-    }
-
-    const lookup = {
-        '&': "&amp;",
-        '"': "&quot;",
-        '\'': "&apos;",
-        '<': "&lt;",
-        '>': "&gt;"
-    };
-    return s.replace(/[&"'<>]/g, c => lookup[c]);
+function translateCode(code) {
+    return code;
 }
 
 (function () {

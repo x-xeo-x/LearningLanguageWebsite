@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Potwierdz swoj adres email";
+    var account = Context.Items["userAccount"] as LearningLanguageWebsite.Dto.AccountDTO;
+}
+<div class="page-container d-grid align-items-center justify-content-center">
+    <div>Aby korzystać z tego konta musisz najpierw potwierdzić swój adres email.</div>
+
+    <div class="text-center">Email: @account.Email</div><div class="mb-3 text-center">
+        <button type="button" id="resendEmail" class="btn btn-primary mt-2">Wyślij ponownie</button>
+        <a href="@Url.Action("Logout", "Home")" class="btn btn-primary mt-2" role="button">Wyloguj</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const resendEmailUrl = '@Url.Action("ResendEmail", "Home")';
+       ﻿(function () {
+    document.getElementById('resendEmail').addEventListener('click', function (event) {
+        makeGetRequest(resendEmailUrl)
+            .then(data => {
+                if (data.error) {
+                    toastr.error(translateCode(data.error));
+                    return;
+                }
+
+                toastr.success(translateCode(data.success));
+            })
+            .catch((error) => {
+                toastr.error(error.toString());
+            });
+    });
+})();
+    </script>
+}

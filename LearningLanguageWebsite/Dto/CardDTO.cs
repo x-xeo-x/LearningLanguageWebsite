@@ -12,7 +12,7 @@ namespace LearningLanguageWebsite.Dto
         public string Image { get; set; }
         public string CorrectAnswer { get; set; }
         [BsonRepresentation(BsonType.ObjectId)]
-        public LanguageDTO LanguageId { get; set; }
+        public string LanguageId { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string Author { get; set; }
