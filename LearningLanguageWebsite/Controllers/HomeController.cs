@@ -7,16 +7,18 @@ using System.Diagnostics;
 
 namespace LearningLanguageWebsite.Controllers
 {
-    [TypeFilter(typeof(HomeActionFilter))]
+    //[TypeFilter(typeof(HomeActionFilter))]
     public class HomeController : Controller
     {
         private readonly IUserAuthentication _userAuthentication;
         private readonly IAccountRepository _accountRepository;
+        private readonly ILanguageRepository _languageRepository;
 
-        public HomeController(IUserAuthentication userAuthentication, IAccountRepository accountRepository)
+        public HomeController(IUserAuthentication userAuthentication, IAccountRepository accountRepository, ILanguageRepository languageRepository)
         {
             _userAuthentication = userAuthentication;
             _accountRepository = accountRepository;
+            _languageRepository = languageRepository;
         }
 
         public IActionResult Index()
@@ -55,6 +57,13 @@ namespace LearningLanguageWebsite.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public async Task<IActionResult> SelectLanguage()
+        {
+            var model = new LanguagesViewModel();
+            model.Languages = await _languageRepository.GetLanguages();
+
+            return View(model.Languages);
         }
     }
 }

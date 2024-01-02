@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f7rgD4JY2AHpV2huLUx7SHjhAYjqy5EaQAYQXq7dbtM=",
+  "Hash": "lh+MKqyJzqFNUWqHvHwUnAAoxrk4gE60Nd629RCpOVE=",
   "Source": "LearningLanguageWebsite",
   "BasePath": "_content/LearningLanguageWebsite",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "D:\\SCRIPTS\\OWN\\LearningLanguageWebsite\\LearningLanguageWebsite\\wwwroot\\css\\panels.css",
+      "SourceId": "LearningLanguageWebsite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SCRIPTS\\OWN\\LearningLanguageWebsite\\LearningLanguageWebsite\\wwwroot\\",
+      "BasePath": "_content/LearningLanguageWebsite",
+      "RelativePath": "css/panels.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\panels.css"
     },
     {
       "Identity": "D:\\SCRIPTS\\OWN\\LearningLanguageWebsite\\LearningLanguageWebsite\\wwwroot\\css\\site.css",

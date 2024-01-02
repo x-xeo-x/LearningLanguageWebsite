@@ -13,7 +13,7 @@ namespace LearningLanguageWebsite.Dto
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
         public bool IsAdmin { get; set; }
-        public long CreationTime { get; set; }
+        public long CreationTime { get; set; } 
         public long LastPasswordChange { get; set; }
         public long LastEmailPasswordSend { get; set; }
         public long LastEmailConfirmSend { get; set; }

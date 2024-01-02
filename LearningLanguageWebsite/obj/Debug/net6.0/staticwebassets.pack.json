@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "D:\\SCRIPTS\\OWN\\LearningLanguageWebsite\\LearningLanguageWebsite\\wwwroot\\css\\panels.css",
+      "PackagePath": "staticwebassets\\css\\panels.css"
+    },
+    {
       "Id": "D:\\SCRIPTS\\OWN\\LearningLanguageWebsite\\LearningLanguageWebsite\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

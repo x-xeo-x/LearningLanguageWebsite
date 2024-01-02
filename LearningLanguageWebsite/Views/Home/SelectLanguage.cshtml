@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Wybierz język";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@section Stylesheets {
+    <link rel="stylesheet" href="~/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+}
+
+<div class="container page-container text-center mt-5">
+    <!-- Avatar and Username -->
+    <div class="avatar">
+        <img src="https://example.com/avatar.jpg" alt="User Avatar">
+    </div>
+    <h1 class="username-title">ViewData["Username"]</h1>
+
+    <!-- Main Content -->
+    <div class="row mt-5">
+        <!-- Completed Categories -->
+        <div class="col-12 col-md-4">
+            <h5 class="section-title">Ukończone kategorie</h5>
+            <div class="horizontal-scroll">
+                <div class="scroll-item">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <span>category.Language</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-item">
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-body">
+                                <span>category.Language</span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="scroll-item">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <span>category.Language</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="col-12 col-md-4">
+            <h5 class="section-title">Postępy w nauce</h5>
+            <canvas id="progress-chart"></canvas>
+        </div>
+
+        <!-- Account Info -->
+        <div class="col-12 col-md-4">
+            <h5 class="section-title">Informacje o koncie</h5>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span class="info-text">Email: Model.Email</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-user"></i>
+                <span class="info-text">Nazwa użytkownika: ViewData["Username"]</span>
+            </div>
+            <button type="button" class="btn btn-primary"><i class="fas fa-key"></i> Zmień hasło</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample data for the chart, replace with actual data
+        const sampleData = [
+            { date: '2023-01-01', tasks: 5 },
+            { date: '2023-01-02', tasks: 7 },
+            { date: '2023-01-03', tasks: 8 },
+            // ... more data
+        ];
+
+        const labels = sampleData.map(d => d.date);
+        const data = sampleData.map(d => d.tasks);
+
+        const ctx = document.getElementById('progress-chart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Liczba wykonanych fiszek',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Data'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Liczba fiszek'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

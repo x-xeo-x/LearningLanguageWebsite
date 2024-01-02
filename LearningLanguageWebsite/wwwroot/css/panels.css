@@ -1,0 +1,44 @@
+﻿.avatar {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+.username-title {
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.horizontal-scroll {
+    overflow-x: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-text {
+    font-size: 16px;
+}
